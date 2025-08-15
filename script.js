@@ -1,10 +1,11 @@
-// Discord OAuth2 login
-document.getElementById('discord-login').addEventListener('click', () => {
-    const clientId = 1405381148707651604; // Replace with your bot's client ID
-    const redirectUri = encodeURIComponent("https://zaneioio.github.io/repo"); // Replace with your GitHub Pages URL
-    const scope = encodeURIComponent("identify guilds");
-    const responseType = "token";
+// Replace with your numeric Discord Application ID
+const clientId = "1405381148707651604"; // your actual client ID as a string
+const redirectUri = encodeURIComponent("https://zaneioio.github.io/repo"); // your GitHub Pages URL
+const scope = encodeURIComponent("identify guilds");
+const responseType = "token";
 
-    const authUrl = `https://discord.com/oauth2/authorize?client_id=${1405381148707651604}&redirect_uri=${https://zaneioio.github.io/repo}&response_type=${responseType}&scope=${scope}`;
+const authUrl = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}`;
+
+document.getElementById('discord-login').addEventListener('click', () => {
     window.location.href = authUrl;
 });
