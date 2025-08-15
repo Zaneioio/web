@@ -1,6 +1,6 @@
 // Replace with your numeric Discord Application ID
 const clientId = "1405381148707651604"; // your actual client ID as a string
-const redirectUri = encodeURIComponent("https://zaneioio.github.io/repo"); // your GitHub Pages URL
+const redirectUri = encodeURIComponent("https://zaneioio.github.io/zaneioio.github.io"); // your GitHub Pages URL
 const scope = encodeURIComponent("identify guilds");
 const responseType = "token";
 
