@@ -1,5 +1,5 @@
-const clientId = "1405381148707651604"; // Your numeric Discord client ID
-const redirectUri = "https://zaneioio.github.io/"; // Your GitHub Pages URL
+const clientId = "1405381148707651604";
+const redirectUri = "https://zaneioio.github.io/";
 const scope = "identify guilds";
 
 document.getElementById('discord-login').addEventListener('click', () => {
@@ -7,7 +7,6 @@ document.getElementById('discord-login').addEventListener('click', () => {
   window.location.href = authUrl;
 });
 
-// After redirect, get the access token from URL hash
 window.onload = () => {
   if(window.location.hash){
     const hash = window.location.hash.substring(1);
@@ -19,13 +18,27 @@ window.onload = () => {
       })
       .then(res => res.json())
       .then(data => {
-        document.getElementById('welcome-section').style.display = 'none';
-        const userSection = document.getElementById('user-info');
-        userSection.style.display = 'block';
-        document.getElementById('username').innerText = `Username: ${data.username}#${data.discriminator}`;
-        document.getElementById('userid').innerText = `ID: ${data.id}`;
-      })
-      .catch(err => console.error(err));
+        document.getElementById('discord-login').style.display='none';
+        document.getElementById('dashboard').style.display='block';
+        document.getElementById('server-name').innerText = "Server Settings for " + data.username;
+        
+        // Load channels and roles (placeholder, replace with API later)
+        const roles = ["Admin","Mod","Member"];
+        const channels = ["general","logs","leveling","automod"];
+        const adminSelect = document.getElementById('admin-roles');
+        roles.forEach(r => {let o=document.createElement('option'); o.value=r; o.text=r; adminSelect.add(o);});
+        ["mod-log-channel","xp-channel","automod-log"].forEach(id=>{
+          const sel = document.getElementById(id);
+          channels.forEach(c=>{let o=document.createElement('option'); o.value=c; o.text=c; sel.add(o);});
+        });
+      });
     }
   }
 };
+
+// Save buttons placeholder
+document.querySelectorAll('.save-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    alert(`Saved settings for ${btn.dataset.section}! (This would send to your backend)`);
+  });
+});
