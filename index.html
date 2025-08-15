@@ -1,29 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Discord Bot Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bot Dashboard</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Bot Dashboard</h1>
-    <button id="discord-login">Login with Discord</button>
-  </header>
+<header>
+  <h1>Bot Dashboard</h1>
+  <button id="discord-login">Login with Discord</button>
+</header>
 
-  <main>
-    <section id="welcome-section">
-      <h2>Welcome!</h2>
-      <p>Login with Discord to manage your servers.</p>
-    </section>
-    <section id="user-info" style="display:none;">
-      <h2>User Info</h2>
-      <p id="username"></p>
-      <p id="userid"></p>
-    </section>
-  </main>
+<main id="dashboard" style="display:none;">
+  <h2 id="server-name">Server Settings</h2>
 
-  <script src="script.js"></script>
+  <div class="section">
+    <h3>General</h3>
+    <label>Admin Roles:</label>
+    <select id="admin-roles" multiple></select>
+    <button class="save-btn" data-section="general">Save General</button>
+  </div>
+
+  <div class="section">
+    <h3>Moderation</h3>
+    <label>Enable Mod Commands:</label>
+    <input type="checkbox" id="mod-toggle">
+    <br>
+    <label>Log Channel:</label>
+    <select id="mod-log-channel"></select>
+    <br>
+    <label>Warnings until timeout:</label>
+    <input type="number" id="warning-threshold" min="1" value="3">
+    <button class="save-btn" data-section="moderation">Save Moderation</button>
+  </div>
+
+  <div class="section">
+    <h3>Leveling</h3>
+    <label>Enable Leveling:</label>
+    <input type="checkbox" id="leveling-toggle">
+    <br>
+    <label>XP Channel:</label>
+    <select id="xp-channel"></select>
+    <button class="save-btn" data-section="leveling">Save Leveling</button>
+  </div>
+
+  <div class="section">
+    <h3>Auto Moderation</h3>
+    <label>Enable AutoMod:</label>
+    <input type="checkbox" id="automod-toggle">
+    <br>
+    <label>AutoMod Log Channel:</label>
+    <select id="automod-log"></select>
+    <button class="save-btn" data-section="automod">Save AutoMod</button>
+  </div>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
