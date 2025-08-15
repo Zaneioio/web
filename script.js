@@ -5,6 +5,6 @@ document.getElementById('discord-login').addEventListener('click', () => {
     const scope = encodeURIComponent("identify guilds");
     const responseType = "token";
 
-    const authUrl = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}`;
+    const authUrl = `https://discord.com/oauth2/authorize?client_id=${1405381148707651604}&redirect_uri=${https://zaneioio.github.io/repo}&response_type=${responseType}&scope=${scope}`;
     window.location.href = authUrl;
 });
